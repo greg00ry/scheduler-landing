@@ -172,7 +172,7 @@ export default function LandingPage() {
               <span className="font-bold text-gray-900 text-lg">Scheduler</span>
             </div>
             <a
-              href={APP_URL}
+              href={APP_URL} target="_blank" rel="noopener noreferrer"
               className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors"
             >
               Zaloguj się
@@ -193,7 +193,7 @@ export default function LandingPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href={APP_URL}
+                  href={APP_URL} target="_blank" rel="noopener noreferrer"
                   className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
                 >
                   Zacznij teraz
@@ -225,7 +225,7 @@ export default function LandingPage() {
                     <span className="text-gray-400">Hasło:</span>
                     <code className="bg-gray-100 text-gray-800 font-mono px-2 py-0.5 rounded text-xs">admin</code>
                   </div>
-                  <a href={APP_URL} className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-3 py-1.5 rounded-lg transition-colors flex-shrink-0">
+                  <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-3 py-1.5 rounded-lg transition-colors flex-shrink-0">
                     Zaloguj się
                   </a>
                 </div>
@@ -375,7 +375,7 @@ export default function LandingPage() {
               Gotowy żeby zacząć?
             </h2>
             <a
-              href={APP_URL}
+              href={APP_URL} target="_blank" rel="noopener noreferrer"
               className="inline-block px-8 py-3 rounded-lg bg-white text-blue-600 font-medium hover:bg-gray-50 transition-colors"
             >
               Przejdź do aplikacji
