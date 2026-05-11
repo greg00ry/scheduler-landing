@@ -155,17 +155,27 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 export default function LandingPage() {
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const [bannerHeight, setBannerHeight] = useState(0);
+
+  useEffect(() => {
+    const update = () => setBannerHeight(bannerRef.current?.offsetHeight ?? 0);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       {/* 0. Banner demo */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-amber-500 text-white text-sm text-center py-2 px-4">
-        Wersja demonstracyjna — nie przeznaczona do użytku biznesowego. Dane
-        mogą być resetowane bez powiadomienia.
+      <div ref={bannerRef} className="fixed top-0 left-0 right-0 z-50 bg-amber-500 text-white text-sm text-center py-2 px-4">
+        <span className="hidden sm:inline">Wersja demonstracyjna — nie przeznaczona do użytku biznesowego. Dane mogą być resetowane bez powiadomienia.</span>
+        <span className="sm:hidden">Wersja demo — dane mogą być resetowane bez powiadomienia.</span>
       </div>
 
-      <div className="pt-10">
+      <div style={{ paddingTop: bannerHeight }}>
         {/* 1. Navbar — blur */}
-        <nav className="sticky top-10 z-40 backdrop-blur-sm bg-white/80 border-b border-gray-200">
+        <nav style={{ top: bannerHeight }} className="sticky z-40 backdrop-blur-sm bg-white/80 border-b border-gray-200">
           <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <CalendarDays className="w-6 h-6 text-blue-600" />
@@ -225,7 +235,7 @@ export default function LandingPage() {
                     <span className="text-gray-400">Hasło:</span>
                     <code className="bg-gray-100 text-gray-800 font-mono px-2 py-0.5 rounded text-xs">admin</code>
                   </div>
-                  <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-3 py-1.5 rounded-lg transition-colors flex-shrink-0">
+                  <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="hidden sm:block bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-3 py-1.5 rounded-lg transition-colors flex-shrink-0">
                     Zaloguj się
                   </a>
                 </div>
