@@ -243,8 +243,10 @@ export default function LandingPage() {
             </div>
 
             {/* Mock app preview */}
-            <div className="max-w-4xl mx-auto">
-              <SchedulerMock />
+            <div className="max-w-4xl mx-auto overflow-x-auto">
+              <div className="min-w-[700px]">
+                <SchedulerMock />
+              </div>
             </div>
           </div>
         </section>
